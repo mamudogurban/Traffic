@@ -80,7 +80,7 @@ public class Controller : MonoBehaviour
 
         //spawntime = Random.
 
-        yield return new WaitForSeconds(Random.Range(1.5f,3.5f));
+        yield return new WaitForSeconds(Random.Range(2f,4f));
 
         StartCoroutine(SUpdate());
     }
@@ -109,6 +109,13 @@ public class Controller : MonoBehaviour
 
         scoreTxt.text = "SCORE:" + score.ToString();
 
+
+
+        if (score == 200)
+        {
+            Debug.Log("LevelUp");
+            new WaitForSeconds(Random.Range(1.5f, 2));
+        }
        
     }
 
