@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Cars : MonoBehaviour
 {
+    private float hitspeed = 50;
     public static Cars Instance2;
     private GameObject _animatorComponent;
     private bool _movement = true;
@@ -57,11 +58,11 @@ public class Cars : MonoBehaviour
 
         Debug.Log("kaza");
 
+      
 
-        
 
         _animatorComponent = Instantiate(Resources.Load<GameObject>("BigExplosionEffect") );
-        _animatorComponent.transform.position=new Vector3(0,0,0);
+        _animatorComponent.transform.position = collision.gameObject.transform.position;
         _movement = false;
         _animatorComponent = Instantiate(Resources.Load<GameObject>("SmokeEffect"));
 
@@ -90,11 +91,10 @@ public class Cars : MonoBehaviour
 
             Destroy(gameObject);
         } 
-        
+
     }
-  
    
-    
+
 
 }
 

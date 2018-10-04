@@ -9,7 +9,7 @@ public class Controller : MonoBehaviour
 {
     public static Controller Instance;
 
-
+    private float spawntimer;
     private GameObject _car1;
     private GameObject _car2;
     private GameObject _car3;
@@ -51,9 +51,9 @@ public class Controller : MonoBehaviour
         //InvokeRepeating("SUpdate", spawntime, spawntime);
         
         _carList = new List<Cars>();
+      
 
 
-        
 
         StartCoroutine(SUpdate());
         
@@ -83,7 +83,17 @@ public class Controller : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(2f,4f));
 
         StartCoroutine(SUpdate());
+
+        if (score == 200)
+        {
+            
+           yield return new WaitForSeconds(Random.Range(0.1f, 0.1f));
+
+            Debug.Log("LEVELUPSSSSS");
+        }
+
     }
+
 
 
 
@@ -111,11 +121,6 @@ public class Controller : MonoBehaviour
 
 
 
-        if (score == 200)
-        {
-            Debug.Log("LevelUp");
-            new WaitForSeconds(Random.Range(1.5f, 2));
-        }
        
     }
 
